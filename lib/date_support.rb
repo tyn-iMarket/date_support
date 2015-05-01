@@ -1,4 +1,6 @@
 require "date_support/version"
+require "active_support"
+require "active_support/core_ext"
 
 class Date
 
@@ -8,6 +10,20 @@ class Date
     adder = wdays[day] - wday
 
     self + adder
+  end
+
+  def week_of_month
+    weekend = beginning_of_month.end_of_week :sunday
+    week = 1
+
+    loop do
+      break if self <= weekend
+
+      weekend += 7
+      week += 1
+    end
+
+    week
   end
 
 end
