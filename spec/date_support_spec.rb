@@ -86,4 +86,21 @@ describe Date do
     end
   end
 
+  describe 'nth_week_of_month' do
+    let(:date) { Date.new 2015, 5, 13 }
+    let(:nth_week_of_month) { date.nth_week_of_month nth }
+
+    context 'nth is 1' do
+      let(:nth) { 1 }
+
+      it { expect(nth_week_of_month).to eq Date.new(2015, 4, 29) }
+    end
+
+    context 'nth is 4' do
+      let(:nth) { 4 }
+
+      it { expect(nth_week_of_month).to eq Date.new(2015, 5, 20) }
+    end
+  end
+
 end
