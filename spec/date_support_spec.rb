@@ -72,4 +72,18 @@ describe Date do
     end
   end
 
+  describe 'beginning_week_of_month' do
+    let(:beginning_week_of_month) { date.beginning_week_of_month }
+
+    context 'date is 2015/7/3 (beginning week)' do
+      let(:date) { Date.new 2015, 7, 3 }
+      it { expect(beginning_week_of_month).to eq Date.new(2015, 7, 3) }
+    end
+
+    context 'date is 2015/7/12 (third week)' do
+      let(:date) { Date.new 2015, 7, 12 }
+      it { expect(beginning_week_of_month).to eq Date.new(2015, 6, 28) }
+    end
+  end
+
 end

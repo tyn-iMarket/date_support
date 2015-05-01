@@ -12,7 +12,9 @@ class Date
     self + adder
   end
 
-  def week_of_month
+  def week_of_month(nth = nil)
+    return nth_week_of_month(nth) if nth
+
     weekend = beginning_of_month.end_of_week :sunday
     week = 1
 
@@ -24,6 +26,10 @@ class Date
     end
 
     week
+  end
+
+  def beginning_week_of_month
+    self - (week_of_month - 1) * 7
   end
 
 end
