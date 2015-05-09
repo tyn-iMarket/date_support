@@ -1,8 +1,21 @@
 # DateSupport
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/date_support`. To experiment with that code, run `bin/console` for an interactive prompt.
+Get Date of the nth week of the month and day of the week you want.
 
-TODO: Delete this and the text above, and describe your gem
+## Usage
+
+``` ruby
+date = Date.new(2015, 5, 13)
+
+# Second week of the month and same day of the week
+date.nth_week_of_month(2)  # => <Date: 2015-05-06>
+
+# Same week of the month and Friday of the week
+date.day_to(:friday)  # => <Date: 2015-05-15>
+
+# Fourth week of the month and Saturday of the week
+date.nth_week_of_month(2).day_to(:saturday)  # => <Date: 2015-05-23>
+```
 
 ## Installation
 
@@ -19,10 +32,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install date_support
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
